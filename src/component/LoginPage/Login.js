@@ -10,8 +10,8 @@ import { useNavigate } from "react-router-dom";
 
 //  for form input target
 const Login = () => {
-  const [userName, setUserName] = useState("")
-  const [Password, setPassword] = useState("")
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
 
 
 
@@ -31,11 +31,8 @@ const [show , setShow] = useState(false)
   const handleSubmit = (e) => {
     e.preventDefault();
   
-    const data = { userName: userName, Password: Password }
-      axios.post('http://localhost:4000/api/Login',data,{
-        withCredentials: true,
-        credentials:true, 
-      })
+    const data = { username: username, password: password, }
+      axios.post('http://localhost:4000/api/login',data,)
       .then((res)=>{
         if(res.data){
           localStorage.setItem("token",res.data.token)
@@ -67,10 +64,10 @@ const [show , setShow] = useState(false)
 
           {/* Eamil address */}
           <TextField
-            id="UserName"
+            id="username"
             label="User Name"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             margin="normal"
             className={classes.Field1}
             style={{ width: 330 , marginTop: 10}}
@@ -78,9 +75,9 @@ const [show , setShow] = useState(false)
 
           {/*  password*/}
           <TextField
-            id="Password"
-            label="Password"
-            value={Password}
+            id="password"
+            label="password"
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
             className={classes.Field2}
             style={{ width: 330 ,marginTop: 5}}

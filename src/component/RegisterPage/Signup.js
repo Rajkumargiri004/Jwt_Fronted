@@ -8,11 +8,11 @@ import useStyles from "../RegisterPage/style.js"
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-    const [userName, setUserName] = useState("")
-    const [Email, setEmail] = useState("")
-    const [Phone, setPhone] = useState("")
-    const [Password, setPassword] = useState("")
-    const [ConfirmPassword, setConfirmPassword] = useState("")
+    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
+    const [phone, setPhone] = useState("")
+    const [password, setPassword] = useState("")
+    const [cpassword, setCpassword] = useState("")
   
   // for hide and unhide password icon
   const [show , setShow] = useState(false)
@@ -29,19 +29,19 @@ const Signup = () => {
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      if(userName ===""){
+      if(username ===""){
         toast.error("Name is Required")
-      }else if( Email === ""){
+      }else if( email === ""){
         toast.error("email is requred")
-      }else if(Password === ""){
+      }else if(password === ""){
         toast.error("password is required")
-      }else if(ConfirmPassword === ""){
+      }else if(cpassword === ""){
         toast.error("confirm pasword is requred")
-      }else if (Password ===!ConfirmPassword){
+      }else if (password ===!cpassword){
         toast.error("password not match with confrim password")
       }
-      const data = { userName: userName,Email:Email,Phone: Phone, Password: Password, ConfirmPassword: ConfirmPassword, }
-        axios.post('http://localhost:4000/api/Register',data,{
+      const data = { username: username,email:email,phone: phone, password: password, cpassword: cpassword, }
+        axios.post('http://localhost:4000/api/register',data,{
           
         })
         .then((res)=>{
@@ -68,10 +68,10 @@ const Signup = () => {
 
           {/* Eamil address */}
           <TextField
-            id="UserName"
+            id="username"
             label="User Name"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             margin="normal"
             className={classes.Field1}
             style={{ width: 330 , marginTop: 10}}
@@ -79,9 +79,9 @@ const Signup = () => {
 
           {/*  Email*/}
           <TextField
-            id="Email"
+            id="email"
             label="Email"
-            value={Email}
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
             className={classes.Field2}
             style={{ width: 330 ,marginTop: 5}}
@@ -90,9 +90,9 @@ const Signup = () => {
 
                {/*  Phone*/}
                <TextField
-            id="Phone"
+            id="phone"
             label="Phone"
-            value={Phone}
+            value={phone}
             onChange={(e) => setPhone(e.target.value)}
             className={classes.Field2}
             style={{ width: 330 ,marginTop: 5}}
@@ -100,9 +100,9 @@ const Signup = () => {
           />
                   {/*  Password*/}
                   <TextField
-            id="Password"
+            id="password"
             label="Password"
-            value={Password}
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
             className={classes.Field2}
             style={{ width: 330 ,marginTop: 5}}
@@ -110,10 +110,10 @@ const Signup = () => {
           />
                       {/*  ConfirmPassword*/}
                       <TextField
-            id="Confrim Password"
+            id="cpassword"
             label="Confirm Password"
-            value={ConfirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            value={cpassword}
+            onChange={(e) => setCpassword(e.target.value)}
             className={classes.Field2}
             style={{ width: 330 ,marginTop: 5}}
 
