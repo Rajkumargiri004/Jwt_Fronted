@@ -47,9 +47,9 @@ const [show , setShow] = useState(false)
   };
 
   // for register button navigate
-  // const goToRegister = () => {
-  //   navigate("/");
-  // };
+  const passwordresetpage = () => {
+    navigate("/passwordReset");
+  };
 
   return (
     <>
@@ -87,7 +87,7 @@ const [show , setShow] = useState(false)
             }}
           />
           {/* sign in  button */}
-          <Typography className={classes.forgetpasslink}  style={{ fontSize: 15, marginTop: 5,marginLeft: 205}}>Forget passowrd?</Typography>
+          <Typography className={classes.forgetpasslink}  style={{ fontSize: 15, marginTop: 5,marginLeft: 205}}><Button onClick={passwordresetpage}>Forget passowrd?</Button></Typography>
           <Button
             className={classes.regbutton}
             name="registred"
